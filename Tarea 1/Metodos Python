@@ -1,45 +1,43 @@
 
-def count_char(cadena, caracter):    #Se establece el primer método
-                                     # reciben parámetros cadena y caracter
+"""
 
-    
-    # A) Verifica que cadena sea  string
-    
-    if not isinstance(cadena, str):        #Compara objeto asociado a Cadena con el tipo de Var String
-
-        return ("ERROR1", None)        #Si no es String 
-
+ Métodos Tarea 1 Microprocesadores y Microcontroladores
+ José Pablo Álvarez Preinfalk y Marcela Menjívar Sánchez
+ Ing. Rodolfo Piedra Camacho
+ 15 de agosto, 2025
+ 
+"""
 
 
+"""  Códigos de Errores Únicos
+ 
+     ERROR1 -> cadena no es string
+     ERROR2 -> cadena no es alfanumérico
+     ERROR3 -> caracter tiene más de un caracter o no es alfanumérico
+     EXITO1 -> operación exitosa
 
-    # B) Verifica que Cadena solo sean letras y números
-    
-    if not cadena.isalnum():      #Función ya definida por librería para verificar si
-                                  # los caracteres son alfanuméricos 
-  
-        return ("ERROR2", None)  #Si no es alfanumérico
+"""
 
+
+def count_char(cadena, caracter):    # Se establece el método que recibe parámetros cadena y caracter
+
+    # A) Verifica que cadena sea string
+    if not isinstance(cadena, str):   # Compara objeto asociado a cadena con el tipo string
+        return ("ERROR1", None)          # Si no es string
+
+
+    # B) Verifica que cadena solo sean letras y números
+    if not cadena.isalnum():         # Función de librería para verificar caracteres alfanuméricos
+        return ("ERROR2", None)         # Si no es alfanumérico
 
 
     # C) Verifica que carácter sea un único carácter del abecedario o número
+    if not isinstance(caracter, str) or len(caracter) != 1 or not caracter.isalnum(): # Verifica que sea string, longitud 1 y alfanumérico 
+        return ("ERROR3", None)        # Si no es carácter único y alfanumérico
 
 
-""" Verifica primero que sea string, que su longitud no sea diferente de 1, 
-y que sea alfanumérico con la función de librería.isalnum(). Si alguno de estos
-no se cumplen, retorna el error."""
+    # D) Cuenta cuántas veces aparece el parámetro carácter en la cadena
+    cantidad = cadena.count(caracter)  # count() cuenta cuántas veces aparece
+    return ("SUCCESS1", cantidad)         # Retornar código de éxito y cantidad
+
     
-    if not isinstance(caracter, str) or len(caracter) != 1 or not caracter.isalnum():
-
-        return ("ERROR3", None)  #si no es carácter único y alfanumérico
-
-
-
-    # D)  Cuenta la cantidad de veces que el parámetro carácter aparece en el parámetro cadena. 
-
-    cantidad = cadena.count(caracter)   #función count cuenta cuántas veces su argumento en cadena 
-                                        #además, asigna esta variable a cantidad
-                                        
-    return "SUCCESS1", cantidad   # Retornar código de éxito y cantidad
-
-
-

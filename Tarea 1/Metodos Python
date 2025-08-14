@@ -1,35 +1,45 @@
-"""
-
- Métodos Tarea 1 Microprocesadores y Microcontroladores
- José Pablo Álvarez Preinfalk y Marcela Menjívar Sánchez
- Ing. Rodolfo Piedra Camacho
- 15 de agosto, 2025
- 
-"""
-
 
 def count_char(cadena, caracter):    #Se establece el primer método
                                      # reciben parámetros cadena y caracter
 
     
-    # A) Verificar que cadena sea  string
+    # A) Verifica que cadena sea  string
+    
     if not isinstance(cadena, str):        #Compara objeto asociado a Cadena con el tipo de Var String
 
-        raise TypeError("La entrada debe ser un string")        #Si no es String arroja mensaje
+        return ("ERROR1", None)        #Si no es String 
 
 
 
 
-    # B) Verificar que Cadena solo sean letras y números
+    # B) Verifica que Cadena solo sean letras y números
+    
     if not cadena.isalnum():      #Función ya definida por librería para verificar si
                                   # los caracteres son alfanuméricos 
   
-        return "ERROR2: La cadena contiene caracteres no permitidos"
+        return ("ERROR2", None)  #Si no es alfanumérico
 
 
 
+    # C) Verifica que carácter sea un único carácter del abecedario o número
+
+
+""" Verifica primero que sea string, que su longitud no sea diferente de 1, 
+y que sea alfanumérico con la función de librería.isalnum(). Si alguno de estos
+no se cumplen, retorna el error."""
     
-    # Contar cuántas veces aparece 'caracter' en 'cadena'
-    return cadena.count(caracter)
+    if not isinstance(caracter, str) or len(caracter) != 1 or not caracter.isalnum():
+
+        return ("ERROR3", None)  #si no es carácter único y alfanumérico
+
+
+
+    # D)  Cuenta la cantidad de veces que el parámetro carácter aparece en el parámetro cadena. 
+
+    cantidad = cadena.count(caracter)   #función count cuenta cuántas veces su argumento en cadena 
+                                        #además, asigna esta variable a cantidad
+                                        
+    return "SUCCESS1", cantidad   # Retornar código de éxito y cantidad
+
 
 

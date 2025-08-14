@@ -1,1 +1,35 @@
+"""
+
+ Métodos Tarea 1 Microprocesadores y Microcontroladores
+ José Pablo Álvarez Preinfalk y Marcela Menjívar Sánchez
+ Ing. Rodolfo Piedra Camacho
+ 15 de agosto, 2025
+ 
+"""
+
+
+def count_char(cadena, caracter):    #Se establece el primer método
+                                     # reciben parámetros cadena y caracter
+
+    
+    # A) Verificar que cadena sea  string
+    if not isinstance(cadena, str):        #Compara objeto asociado a Cadena con el tipo de Var String
+
+        raise TypeError("La entrada debe ser un string")        #Si no es String arroja mensaje
+
+
+
+
+    # B) Verificar que Cadena solo sean letras y números
+    if not cadena.isalnum():      #Función ya definida por librería para verificar si
+                                  # los caracteres son alfanuméricos 
+  
+        return "ERROR2: La cadena contiene caracteres no permitidos"
+
+
+
+    
+    # Contar cuántas veces aparece 'caracter' en 'cadena'
+    return cadena.count(caracter)
+
 
